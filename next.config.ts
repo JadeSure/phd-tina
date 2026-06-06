@@ -3,9 +3,11 @@ import createMDX from "@next/mdx";
 
 const nextConfig: NextConfig = {
   pageExtensions: ["ts", "tsx", "md", "mdx"],
-  // Pin the workspace root so Next doesn't pick up a stray parent lockfile.
+  // Pin the workspace root to this project so Next doesn't infer it from a
+  // stray parent lockfile. process.cwd() is the project root on Vercel and
+  // locally (where `next` is run from here).
   turbopack: {
-    root: __dirname,
+    root: process.cwd(),
   },
 };
 
