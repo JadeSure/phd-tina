@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+/* Design tokens — source of truth is docs/style.md. Matches barryli.phd:
+   geometric sans, heavy headings, left sidebar, hairline divider. */
+@theme {
+  /* Neutrals */
+  --color-bg: #ffffff;
+  --color-bg-subtle: #f7f7f5;
+  --color-text: #1a1a1a;
+  --color-text-muted: #6b6b6b;
+  --color-border: #e6e6e6;
+
+  /* Accent — single restrained deep-green */
+  --color-link: #1f6f54;
+  --color-link-hover: #14503c;
+  --color-accent-soft: #e8f0ec;
+
+  /* Typography — geometric sans (Poppins via next/font), heavy headings */
+  --font-body: var(--font-sans), "Segoe UI", system-ui, sans-serif;
+  --font-heading: var(--font-sans), "Segoe UI", system-ui, sans-serif;
+
+  /* Layout widths */
+  --measure: 760px; /* body reading width */
+  --sidebar: 300px; /* left sidebar width */
+  --container-max: 1200px; /* outer container */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Links inherit by default so structural links (brand, nav) stay near-black.
+   Prose/body links get the green accent via the .prose-links scope below. */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.prose-links a,
+article a {
+  color: var(--color-link);
+}
+.prose-links a:hover,
+article a:hover {
+  color: var(--color-link-hover);
+  text-decoration: underline;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
+}
+
+/* Headings: heavy, tight, like the reference */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  color: var(--color-text);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}

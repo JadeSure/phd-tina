@@ -1,37 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# phd-tina
 
-## Getting Started
+Personal research portal for **Tina Wang**, PhD candidate at the University of
+Technology Sydney — researching AI governance, public sector innovation, and
+real-world AI deployment.
 
-First, run the development server:
+Minimalist, text-first, academic design modelled on
+[barryli.phd](https://barryli.phd): a left sidebar (brand, navigation, recent
+posts, bio) divided from a single-column reading area, geometric sans
+typography, and a single restrained green accent.
+
+## Stack
+
+- **Next.js 16** (App Router) + **React 19** + **TypeScript**
+- **Tailwind CSS v4** (CSS-first `@theme` tokens)
+- **MDX** content via `@next/mdx` — blog posts are local files, no CMS
+- **Poppins** via `next/font`
+
+## Getting started
+
+Requires **Node 22** (see `.nvmrc`).
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+nvm use 22
+npm install
+npm run dev      # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Other scripts:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build    # production build
+npm run start    # serve the build
+npm run lint     # eslint
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project structure
 
-## Learn More
+```
+content/            # editable content (no code changes needed to publish)
+  site.ts           # site name, tagline, nav, bio, social links
+  publications.ts   # publication list
+  posts/*.mdx       # blog posts (frontmatter + body)
+src/
+  app/              # routes: / (Research), /about, /publications, /blog, /contact
+  components/       # Sidebar, PostList
+  lib/posts.ts      # reads + parses MDX posts
+docs/
+  style.md          # design system (source of truth)
+  tech.md           # engineering reference
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Adding content
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **New post** → add `content/posts/<slug>.mdx` with frontmatter; URL is `/blog/<slug>`.
+- **Publication** → add an entry to `content/publications.ts`.
+- **Bio / nav / social links** → edit `content/site.ts`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deploy
 
-## Deploy on Vercel
+Recommended: **Vercel** (auto-detects Next.js; set Node version to 22). Any
+Node host works via `npm run build && npm run start`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# phd-tina
+See `docs/tech.md` for full details.
