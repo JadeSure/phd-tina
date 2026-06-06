@@ -1,7 +1,17 @@
 import type { Metadata } from "next";
 import { publications, type Publication } from "@content/publications";
 
-export const metadata: Metadata = { title: "Publications" };
+export const metadata: Metadata = {
+  title: "Publications",
+  description:
+    "Academic publications by Tina Wang on AI governance, public sector AI deployment, and human–AI decision making.",
+  openGraph: {
+    title: "Publications · Tina Wang",
+    description:
+      "Journal articles, conference papers, and preprints on AI governance and public sector AI deployment.",
+  },
+  alternates: { canonical: "/publications" },
+};
 
 function groupByYear(items: Publication[]): [number, Publication[]][] {
   const map = new Map<number, Publication[]>();

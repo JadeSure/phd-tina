@@ -1,3 +1,17 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Research",
+  description:
+    "Tina Wang's doctoral research on AI governance infrastructure, human–AI decision making, and defensible AI deployment decisions in the public sector.",
+  openGraph: {
+    title: "Research · Tina Wang",
+    description:
+      "Doctoral research on AI governance infrastructure, human–AI decision making, and defensible AI deployment decisions in the public sector.",
+  },
+  alternates: { canonical: "/" },
+};
+
 export default function HomePage() {
   return (
     <article>

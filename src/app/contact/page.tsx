@@ -1,7 +1,15 @@
 import type { Metadata } from "next";
 import { site } from "@content/site";
 
-export const metadata: Metadata = { title: "Contact" };
+export const metadata: Metadata = {
+  title: "Contact",
+  description: "Get in touch with Tina Wang — PhD researcher in AI governance at the University of Technology Sydney.",
+  openGraph: {
+    title: "Contact · Tina Wang",
+    description: "Get in touch with Tina Wang — PhD researcher in AI governance at UTS.",
+  },
+  alternates: { canonical: "/contact" },
+};
 
 export default function ContactPage() {
   const { email, orcid, scholar, linkedin, github } = site.social;

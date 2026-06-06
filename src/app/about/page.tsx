@@ -1,6 +1,16 @@
 import type { Metadata } from "next";
 
-export const metadata: Metadata = { title: "About" };
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Tina Wang is a PhD candidate at the University of Technology Sydney researching AI governance in the Australian Government and health sector.",
+  openGraph: {
+    title: "About · Tina Wang",
+    description:
+      "PhD candidate at UTS researching how governance systems help accountable officials make defensible AI deployment decisions.",
+  },
+  alternates: { canonical: "/about" },
+};
 
 export default function AboutPage() {
   return (

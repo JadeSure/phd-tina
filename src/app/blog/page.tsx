@@ -2,7 +2,17 @@ import type { Metadata } from "next";
 import { getAllPosts } from "@/lib/posts";
 import { PostList } from "@/components/PostList";
 
-export const metadata: Metadata = { title: "Blog" };
+export const metadata: Metadata = {
+  title: "Blog",
+  description:
+    "Writing by Tina Wang on AI governance, public sector innovation, and responsible AI deployment.",
+  openGraph: {
+    title: "Blog · Tina Wang",
+    description:
+      "Writing on AI governance, public sector innovation, and responsible AI deployment.",
+  },
+  alternates: { canonical: "/blog" },
+};
 
 export default function BlogPage() {
   const posts = getAllPosts();

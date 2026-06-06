@@ -3,10 +3,10 @@
  * navigation, bio, and social links — no component changes needed.
  */
 export const site = {
-  name: "Tina Wang",
-  shortName: "Tina Wang",
+  name: "Tina",
+  shortName: "Tina",
   tagline: "AI governance, public sector innovation, and real-world AI deployment.",
-  url: "https://example.com",
+  url: "https://tinawang.phd",
 
   // Short bio shown in the sidebar.
   bio: "PhD candidate at the University of Technology Sydney, working with government and industry partners on how governance systems help accountable officials make defensible decisions about AI deployment.",
